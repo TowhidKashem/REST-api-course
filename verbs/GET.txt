@@ -1,0 +1,13 @@
+GET:
+
+    - default browser verb
+
+    - no body in request
+
+    - sends data as query parameters in the request URL
+
+    - the length of the request URL is limited depending on the server/browser (somewhere around 1-2k chars)
+        - status code "414 Request-URI Too Long"
+
+        - if you need to send a huge amount of data that exceeds the limit it's ok to use an inappropiate verb like POST in that case to make a "GET" request
+            - e.g. stock dashboard app that sends a huge array of stock positions, etc

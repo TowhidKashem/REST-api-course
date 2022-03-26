@@ -1,0 +1,36 @@
+API - interface exposed to the application
+
+Types:
+
+    - Operating System API (e.g. Win32 API)
+        - file system
+        - network devices,
+        - etc
+
+    - Library API
+
+    - Remote API (not used much anymore)
+
+    - Web API
+        - platform agnostic
+        - communicates over http (request/response based)
+
+        Types:
+
+            - REST (Representational State Transfer)
+                - est 2000
+                - URL + JSON based
+
+            - SOAP (Simple Object Access Protocol) (outdated)
+                - est 1990 (Microsoft)
+                - XML based
+
+            - GraphQL
+                - est 2015 (Facebook)
+                - specify exactly what fields you want when querying, updating and subscribing
+                - can subscribe to data changes
+
+            - gRPC
+                - est 2015 (Google)
+                - supports streaming (2 way communication between client and server)
+                - uses "protobuf" instead of JSON

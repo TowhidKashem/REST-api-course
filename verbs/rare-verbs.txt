@@ -1,0 +1,20 @@
+HEAD:
+
+    - same as GET but without a body in the response, just the status code
+
+    - useful to just check if an entity exists (like a ping)
+
+---------
+
+OPTIONS:
+
+    - sends back the available methods accepted for the given URL
+    - e.g this command:
+
+        $ curl -X OPTIONS https://example.org -i
+
+    responds with:
+
+        HTTP/2 200 
+        allow: OPTIONS, GET, HEAD, POST
+        etc...

@@ -1,0 +1,5 @@
+DELETE:
+
+    - should not include body
+        - use parameters to identify the resource to be deleted
+

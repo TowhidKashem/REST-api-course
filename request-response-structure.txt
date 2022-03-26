@@ -1,0 +1,45 @@
+The 4 components of a REST request:
+
+    - Method (GET, POST, PUT, PATCH, DELETE) aka CRUD action
+    - Headers
+    - URL
+        - contains the resource address
+        - GET and DELETE contain parameters in the URL, POST, PUT and PATCH don't
+    - Body (optional)
+        - contains the resource to be added/updated
+        - GET and DELETE shouldn't include body, but POST, PUT and PATCH should
+
+------------------------------------------------
+
+The 3 components of a REST response:
+
+    - Status Code
+    - Headers
+    - Body (optional)
+
+------------------------------------------------
+
+Raw request string example:
+
+    GET /api/test HTTP/1.1
+    User-Agent: PostmanRuntime/7.29.0
+    Accept: */*
+    Cache-Control: no-cache
+    Postman-Token: f28a0234-2219-4056-8878-ea011b150453
+    Host: apicourse.free.beeceptor.com
+    Accept-Encoding: gzip, deflate, br
+    Connection: keep-alive
+
+------------------------------------------------
+
+Raw response string example:
+
+    HTTP/1.1 200 OK
+    Date: Sat, 26 Mar 2022 16:20:43 GMT
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Connection: keep-alive
+    Access-Control-Allow-Origin: *
+    Vary: Accept-Encoding
+    
+    { "data":"Hello world!"}
