@@ -1,0 +1,59 @@
+Response Codes:
+
+    - grouped into 5 distinct categories:
+        - errors in each group has their own 3 digit status code
+            - all status codes in a particular group start with the same number
+
+------------------------------------------------
+
+    - 1xx Informational:
+        - don't use this, no one does!
+
+------------------------------------------------
+
+    - 2xx Success:
+        - 200 OK
+            - it just means the request was successful, the client expects the requested entity to be available in the response body when they get back this status
+            - this is the default status code sent to the client if no status is specified by the API
+
+        - 201 CREATED
+            - new entity created
+            - expected status code form POST request
+            - the overall response might also include a "location" header pointing (aka pointer to) to the newly created entity
+
+        - 202 ACCEPTED
+            - request is accepted and pending processing (will take time to complete)
+
+        - 204 NO CONTENT
+            - no content to return, but the request was successful
+            - should not include body, used in DELETE requests or when updating very large entities
+            - don't use this, just use 200 instead!
+
+------------------------------------------------
+
+    - 3xx Redirection:
+        - rarely used, ususally implemented by the web server layer
+
+------------------------------------------------
+
+    - 4xx Client Error:
+        - 400 BAD REQUEST
+            - one of the params is missing or invalid, or the json is malformed, etc
+            - ideally should include a JSON body explaining the problem with the request (https://datatracker.ietf.org/doc/html/rfc7807) such as the exact fields
+
+        - 401 UNAUTHORIZED
+            - e.g. an unauthenticated user tried to access an admin endpoint
+
+        - 403 FORBIDDEN
+            - e.g. a standard user tried to access an admin endpoint
+
+        - 404 NOT FOUND
+            - use this when a specific entity was sought using ID param (not using query params) and it wasn't found
+                - because it's acceptable for a query param request to return no results
+
+------------------------------------------------
+
+    - 5xx Server Error:
+        - 500 INTERNAL SERVER ERROR
+            - intentionally vauge server error since exposing exactly what went wrong is a security risk
+            - e.g. the sql query failed for some reason

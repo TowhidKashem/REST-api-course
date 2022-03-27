@@ -1,0 +1,59 @@
+// https://i.imgur.com/lOedrDr.png
+
+URL:
+
+    - having "api" in the domain/subdomain name or path is important as it indicates that the URL is for the API and not for the user facing app:
+        https://api.google.com
+        https://google.com/api
+        https://language.googleapis.com
+
+------------------------------------------------
+
+    - the version should be positive and have no decimals, it should also be prefixed with a "v":
+        https://api.google.com/v1
+
+------------------------------------------------
+
+    - the entity/resource comes next:
+        https://api.google.com/v1/posts
+
+------------------------------------------------
+
+    - when dealing with a specific entity the ID comes after:
+        https://api.google.com/v1/posts/15
+
+        IDs are never used in POST request URLs
+
+------------------------------------------------
+
+    - use a sub entity if you need to get something in an entity, it comes AFTER the id parameter
+        e.g. get all items in order #12:
+
+        ✅ good ("items" here is the sub entity):
+            https://api.google.com/v1/orders/12/items
+
+        ❌ bad:
+            https://api.google.com/v1/itemsInOrder/12
+
+        it's uncommon but technically you can have an unlimited number of sub entities one after the other
+
+------------------------------------------------
+
+    - query parameters come last, they're only used in URLs for GET requests:
+        https://api.google.com/v1/posts?page=2&per_page=10
+
+        Query vs ID parameters (when to use which):
+
+            - an ID parameter MUST return exactly 1 result
+            - a query parameter can return any number of results
+
+            For example:        
+                - when asking for the page number or setting the per page count in the request use query parameters:
+                    https://api.google.com/v1/posts?page=2&per_page=10
+
+                - but if asking for a specific post use an ID param:
+                    https://api.google.com/v1/posts/15
+
+            Note:
+                - using an ID parameter means you expect the resource to exist, and if it doesn't the server should return an error
+                - but if a request with query parameters yields no values that's ok, just return an empty set
