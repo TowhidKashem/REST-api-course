@@ -1,4 +1,3 @@
 PATCH:
 
     - similar to PUT but whereas PUT sends the whole updated object in the body, PATCH sends only the parts that should be updated
-

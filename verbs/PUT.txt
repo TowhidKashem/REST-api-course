@@ -2,4 +2,3 @@ PUT:
 
     - if attempting to modify a missing resource, the spec specifies that a new resource should be created (PUT should behave like POST)
         - but it's ok to use your own discretion here like returning an error response
-
