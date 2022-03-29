@@ -1,0 +1,18 @@
+OpenAPI (aka Swagger) is the defacto standard for API documentation
+
+With OpenAPI you describe:
+
+    - Endpoints
+    - Parameters
+    - Authentication
+    - General info about the API (publisher, version, etc)
+
+and the documentation is automatically generated for you
+
+------------------------------------------------
+
+Swagger documentation demo:
+    https://petstore.swagger.io/
+
+Swagger inspector can be used to auto document existing endpoints:
+    https://inspector.swagger.io/builder

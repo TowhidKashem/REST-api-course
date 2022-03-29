@@ -1,0 +1,49 @@
+Authentication - who is the user?
+
+Authorization - what is the user allowed to do?
+
+------------------------------------------------
+
+OAuth2 flow:
+
+    1. [client app] -> tries to access [resource server] anonymously
+    2. [resource server] detects that the user is anonymous and rediects them to the [authentication server]
+    3. [authentication server] asks user to grant permissions and returns an access token to the [client app] on success
+    4. [client app] uses the access token to access [resource server]
+
+------------------------------------------------
+
+Sign in via Facebook, Google, Apple, etc are all using OAuth2, Facebook, Google and Apple in these cases are the authorization servers
+
+------------------------------------------------
+
+The access token is a JWT (JSON Web Token)
+
+The JWT is made up of 3 parts:
+
+    1. Header (contains the type of token, in this case JWT, as well as the signing algorithm)
+
+      example of a typical JWT header:
+
+        {
+          "alg": "HS256",
+          "typ": "JWT"
+        }
+
+    2. Payload (contains the user's information), can stick any relevant info here there is no standard format:
+
+        {
+          "company_id": "1234567890",
+          "name": "John Doe",
+          "admin": true
+        }
+
+    3. Signature (the token is signed so that it can't be tampered with)
+
+
+The 3 parts of a JWT are Base64 encoded and concatenated with dots:
+
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+
+The JWT should be sent to the REST API (resource server) with the `Authorization: bearer` header

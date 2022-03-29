@@ -1,0 +1,11 @@
+Set a well defined version support policy
+    have end of life statement
+
+The api version can be specified in one of three ways:
+
+    - in the URL (most common/easiest)
+    - as a query parameter (don't use, bad)
+    - in the header (accept header) <-- most adheres to REST principles
+
+Although the header route is the best practise, the URL route is more common and the self explanatory nature 
+of it makes it a good option as well. Practically speaking either of these two are fine.
