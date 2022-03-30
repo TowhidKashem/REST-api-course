@@ -1,0 +1,19 @@
+Use async operations when performing heavy tasks (like database or file access)
+    - frees up threads
+    - this way you can keep doing other things in the meantime instead of just waiting for the previous 
+      code to finish before starting the rest
+
+Caching
+    - store frequently used data in memory
+    - set expiration time and invalidation logic (to avoid stale data)
+
+Rate limiting
+    - put a rate limiter in front of the API which blocks too many requests
+    - rate limiter responds with 429 HTTP_TOO_MANY_REQUESTS response to client
+
+Quotas
+    - limit the number of requests a specific client can make
+    - can be a combination of several conditions like:
+        - 50k requests a day
+        - 10 requests max per second per IP address,
+        - etc

@@ -1,0 +1,22 @@
+Monitoring lets you:
+
+    - Detect problems before they occur and bring the API down
+        e.g. heavy load on CPU is developing, etc
+
+    - If a problem does occur, monitoring alerts you of it
+
+    - Offers analytics about usage, e.g. number of clients, their location, etc
+
+
+Things to monitor:
+
+    - Requests per second
+    - Number of failures
+    - Latency
+    - Average CPU utilization
+    - RAM utilization (if too high can signal memory leak)
+    - Number of users
+        - number of unique clients
+    - Number of sessions
+        - number of total requests
+    - Geographical distribution of users
