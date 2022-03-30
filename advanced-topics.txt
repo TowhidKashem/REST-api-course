@@ -1,0 +1,35 @@
+HATEOAS pattern:
+
+    Stands for "Hypermedia as the Engine of Application State"
+
+    When requesting an entity, the response should contain not only what the client asked for, but also pointers to any related resources that the client may want
+
+        e.g. the user endpoint returns info about the user as well as a "links" property which contains a list of endpoint URLs 
+             that can be hit to get additional info about the user like their orders, friend list, etc
+
+                - the initial user request has all these links directly in the response, we don't need to search the documentation for 
+                  them and these links are already customized for this particular user (e.g. has their ID in the params)
+
+    If using HATEOAS, the client doesn't need prior knowledge of how the various endpoints relate, the response is self documentating
+
+------------------------------------------------
+
+API Discovery and Gateway patterns:
+
+    Solves the issue of tightly coupled services
+
+    Solution to this problem is to create a loose coupling directory
+
+        - this acts as a sort of telephone operator
+
+        - each service asks the directory for the URL which responds with the correct one to use
+            - this way we are not hard coding URLs in each service but having to maintain it in this one place only
+
+        - Consul is a popular tool to create a directory service
+
+
+Popular cloud API gateway services:
+
+    - Azure API Management
+    - AWS API Management
+    - GCP Apigee
